@@ -16,9 +16,9 @@
 
   <style>
     :root{
-      --rosa:#e6a3b2; /* rosa suave */
-      --vino:#6b2b3b; /* acento */
-      --champagne:#f8f1e7; /* fondo claro */
+      --rosa:#5ec8ff;      /* celeste principal (antes #e6a3b2) */
+      --vino:#0b4f6c;      /* azul profundo/acento (antes #6b2b3b) */
+      --champagne:#eef7ff; /* fondo claro azulado (antes #f8f1e7) */
       --negro:#111;
     }
 
@@ -29,7 +29,7 @@
       background: var(--champagne);
     }
 
-    /* Hero */
+    /* Hero con foto difuminada + overlay azul */
     .hero{
       position: relative;
       min-height: 100vh;
@@ -38,14 +38,29 @@
       text-align: center;
       color: white;
       overflow: hidden;
-      background: radial-gradient(1200px 600px at 50% -10%, rgba(255,255,255,.15), transparent 60%),
-                  linear-gradient(120deg, #2b1a1f, #5b2b39 50%, #7b3d52);
+      /* el color ahora va en ::after como overlay; la imagen va en ::before */
+      background: none;
     }
+    /* Capa de la FOTO difuminada (reemplaza la ruta por tu imagen) */
     .hero::before{
       content:"";
       position:absolute; inset:0;
-      background:url('assets/fondo.jpg') center/cover no-repeat; /* Reemplazar por su foto */
-      opacity:.25; filter: blur(2px);
+      background:url('assets/foto1.jpg') center/cover no-repeat;
+      /* Difuminado suave y leve zoom para evitar bordes del blur */
+      filter: blur(8px) saturate(1.05);
+      transform: scale(1.08);
+      z-index: 0;
+      opacity: .85;
+    }
+    /* Capa de DEGRADADO AZUL encima de la foto para legibilidad */
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(255,255,255,.15), transparent 60%),
+        linear-gradient(120deg, #0b1d2a, #156ca3 80%, #1f8bd4);
+      z-index: 0;
+      opacity: .50;
     }
     .hero .content{ position: relative; z-index:1; }
     .nombre{ font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 6vw, 6rem); line-height: .9; }
@@ -74,7 +89,7 @@
 
     /* Botón principal */
     .btn-rosa{ background: var(--rosa); border: none; color: #fff; }
-    .btn-rosa:hover{ background: #d88fa0; color:#fff; }
+    .btn-rosa:hover{ background: #42b2ee; color:#fff; } /* hover celeste más intenso */
 
     /* Galería */
     .gallery img{ border-radius: 1rem; aspect-ratio: 4/5; object-fit: cover; }
@@ -102,8 +117,8 @@
 
     @keyframes sway{ 0%,100%{ transform: rotate(-2deg) translateY(0); } 50%{ transform: rotate(2deg) translateY(-6px); } }
 
-    /* Pétalos flotando */
-    .petal{ position: fixed; top:-5vh; width: 18px; height: 18px; background: radial-gradient(circle at 40% 40%, #ffc0cb 0 45%, transparent 46%); border-radius: 60% 40% 60% 40%; opacity:.65; pointer-events:none; animation: fall linear forwards; }
+    /* Pétalos flotando: de rosa a celeste suave */
+    .petal{ position: fixed; top:-5vh; width: 18px; height: 18px; background: radial-gradient(circle at 40% 40%, #bfe8ff 0 45%, transparent 46%); border-radius: 60% 40% 60% 40%; opacity:.65; pointer-events:none; animation: fall linear forwards; }
     @keyframes fall{ to { transform: translateY(110vh) rotate(360deg); opacity:.9; } }
 
     /* Cinta decorativa */
@@ -112,8 +127,13 @@
       border: 1px dashed rgba(0,0,0,.06);
       border-radius: 1rem;
     }
+
+    /* Solo color: redefinir text-danger a azul para no tocar el HTML */
+    .text-danger { color: #1f8bd4 !important; }
   </style>
+
 </head>
+
 <body>
   <!-- Música de fondo (reemplazar src por su archivo .mp3) -->
   <audio id="bg-music" src="assets/musica.mp3" preload="auto" loop></audio>
@@ -142,22 +162,22 @@
         <i class="bi bi-flower1"></i>
         <span class="small">Estás cordialmente invitado(a)</span>
       </div>
-      <h1 class="nombre mb-3">Nombre de la Quinceañera</h1>
+      <h1 class="nombre mb-3">Daira Maité <br> Flores Bartolón</h1>
       <p class="lead subtexto">Celebración de XV Años</p>
       <div class="row justify-content-center mt-4 g-3">
         <div class="col-10 col-md-8 col-lg-6">
           <div class="card card-soft p-4">
-            <p class="mb-1">Sábado <strong class="accent">11 de octubre de 2026</strong> · 6:00 PM</p>
-            <p class="mb-0">Ciudad de Guatemala</p>
+            <p class="mb-1">Sábado <strong class="accent">22 de noviembre de 2025</strong> . 16:00 Horas</p>
+            <p class="mb-0">Salón Genesis <br> San José La Máquina, Suchitepéquez</p>
             <div class="mt-3 d-flex justify-content-center gap-3 flex-wrap" id="countdown">
               <div class="text-center"><div class="fs-2 fw-bold" id="dd">--</div><div class="small">Días</div></div>
               <div class="text-center"><div class="fs-2 fw-bold" id="hh">--</div><div class="small">Horas</div></div>
               <div class="text-center"><div class="fs-2 fw-bold" id="mm">--</div><div class="small">Min</div></div>
               <div class="text-center"><div class="fs-2 fw-bold" id="ss">--</div><div class="small">Seg</div></div>
             </div>
-            <div class="mt-3">
+            <!--<div class="mt-3">
               <a href="#rsvp" class="btn btn-rosa btn-lg"><i class="bi bi-envelope-heart me-2"></i>Confirmar asistencia</a>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
@@ -382,21 +402,6 @@
     </div>
   </section>
 
-  <!-- Lightbox Modal para galería -->
-  <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content bg-transparent border-0">
-        <div class="d-flex justify-content-end">
-          <button type="button" class="btn-close btn-close-white mt-2 me-2" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="px-2 pb-3">
-          <img id="lightboxImage" class="w-100 rounded-4 shadow" src="" alt="Imagen ampliada">
-          <div id="lightboxCaption" class="text-center text-white mt-2 small"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <footer class="py-4">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
       <div class="small">Con cariño, la familia <span class="accent fw-semibold">Apellido</span>.</div>
@@ -420,8 +425,7 @@
     });
 
     // ===== Countdown =====
-    // Ajusta la fecha (año/mes-1/día)
-    const target = new Date(2026, 9, 11, 18, 0, 0); // 11 Oct 2026 18:00
+    const target = new Date(2025, 10, 22, 16, 0, 0); // 22 Nov 2025 16:00
     const dd = document.getElementById('dd');
     const hh = document.getElementById('hh');
     const mm = document.getElementById('mm');
@@ -448,7 +452,6 @@
       msg.textContent = 'Enviando confirmación…';
     }
 
-    // Cuando el iframe termina de cargar (respuesta de Google Forms)
     const hiddenFrame = document.getElementById('hidden_iframe_rsvp');
     hiddenFrame?.addEventListener('load', ()=>{
       const form = document.getElementById('rsvpForm');
@@ -459,37 +462,7 @@
       form?.reset();
     });
 
-    // ===== Lightbox (Galería ampliada) =====
-    const galleryImgs = document.querySelectorAll('.gallery img');
-    const lbModal = new bootstrap.Modal('#lightboxModal');
-    const lbImg = document.getElementById('lightboxImage');
-    const lbCap = document.getElementById('lightboxCaption');
-
-    galleryImgs.forEach(img => {
-      img.addEventListener('click', () => {
-        lbImg.src = img.currentSrc || img.src;
-        lbImg.alt = img.alt || 'Foto';
-        if(lbCap) lbCap.textContent = img.alt || '';
-        lbModal.show();
-      });
-    });
-
-    document.addEventListener('keydown', (e)=>{
-      const modalEl = document.getElementById('lightboxModal');
-      if(!modalEl || !modalEl.classList.contains('show')) return;
-      const items = Array.from(galleryImgs);
-      const idx = items.findIndex(i => (i.currentSrc||i.src) === lbImg.src);
-      if(e.key === 'ArrowRight'){
-        const next = items[(idx + 1 + items.length) % items.length];
-        lbImg.src = next.currentSrc || next.src; lbCap.textContent = next.alt || '';
-      }
-      if(e.key === 'ArrowLeft'){
-        const prev = items[(idx - 1 + items.length) % items.length];
-        lbImg.src = prev.currentSrc || prev.src; lbCap.textContent = prev.alt || '';
-      }
-    });
-
-    // ===== Animación al hacer scroll y nuevos efectos =====
+    // ===== Animación al hacer scroll =====
     const revealObserver = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('appear'); } });
     }, { threshold: .12 });
@@ -517,9 +490,10 @@
   <!--
     📁 Cómo usar este archivo
     1) Cambia el nombre de la quinceañera, fecha, lugares y textos.
-    2) Reemplaza las imágenes en /assets/foto1.jpg ... /assets/foto6.jpg y el fondo en /assets/fondo.jpg.
-    3) Coloca tu canción en /assets/musica.mp3 (respeta derechos de autor). El botón “Música” la reproducirá.
-    4) Opcional: conecta el formulario RSVP a un backend/Google Forms.
+    2) Reemplaza la IMAGEN del hero en /assets/fondo.jpg (se difumina automáticamente).
+    3) Reemplaza las fotos en /assets/foto1.jpg ... /assets/foto6.jpg si deseas.
+    4) Coloca tu canción en /assets/musica.mp3 (respeta derechos de autor). El botón “Música” la reproducirá.
+    5) Opcional: conecta el formulario RSVP a tu Google Forms.
   -->
 </body>
 </html>
