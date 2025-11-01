@@ -45,7 +45,7 @@
     .hero::before{
       content:"";
       position:absolute; inset:0;
-      background:url('/invitacion/assets/foto1.JPG') center/cover no-repeat;
+      background:url('/invitacion/assets/foto1.jpg') center/cover no-repeat;
       /* Difuminado suave y leve zoom para evitar bordes del blur */
       filter: blur(8px) saturate(1.05);
       transform: scale(1.08);
@@ -136,7 +136,7 @@
 
 <body>
   <!-- Música de fondo (reemplazar src por su archivo .mp3) -->
-  <audio id="bg-music" src="assets/musica.mp3" preload="auto" loop></audio>
+  <audio id="bg-music" src="/invitacion/assets/musica.mp3" preload="auto" loop></audio>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
@@ -183,8 +183,8 @@
       </div>
     </div>
       <!-- Stickers PNG (reemplaza rutas por tus propios PNGs con fondo transparente) -->
-    <img src="assets/png/quinceañera-left.png" alt="Quinceañera" class="sticker sticker--left d-none d-sm-block">
-    <img src="assets/png/tiara-rosas.png" alt="Tiara y rosas" class="sticker sticker--right d-none d-sm-block">
+    <img src="/invitacion/assets/png/quinceañera-left.png" alt="Quinceañera" class="sticker sticker--left d-none d-sm-block">
+    <img src="/invitacion/assets/png/tiara-rosas.png" alt="Tiara y rosas" class="sticker sticker--right d-none d-sm-block">
   </header>
 
   <!-- Detalles -->
@@ -294,25 +294,25 @@
       <div class="row g-3 align-items-stretch">
         <div class="col-6 col-md-3 fade-left">
           <div class="card card-soft h-100 p-3 text-center ribbon">
-            <img src="assets/png/tiara.png" class="img-fluid mx-auto d-block" alt="Tiara PNG">
+            <img src="/invitacion/assets/png/tiara.png" class="img-fluid mx-auto d-block" alt="Tiara PNG">
             <div class="small mt-2">Tiara</div>
           </div>
         </div>
         <div class="col-6 col-md-3 fade-up">
           <div class="card card-soft h-100 p-3 text-center ribbon">
-            <img src="assets/png/ramo.png" class="img-fluid mx-auto d-block" alt="Ramo PNG">
+            <img src="/invitacion/assets/png/ramo.png" class="img-fluid mx-auto d-block" alt="Ramo PNG">
             <div class="small mt-2">Ramo</div>
           </div>
         </div>
         <div class="col-6 col-md-3 fade-up">
           <div class="card card-soft h-100 p-3 text-center ribbon">
-            <img src="assets/png/zapatos.png" class="img-fluid mx-auto d-block" alt="Zapatos PNG">
+            <img src="/invitacion/assets/png/zapatos.png" class="img-fluid mx-auto d-block" alt="Zapatos PNG">
             <div class="small mt-2">Zapatos</div>
           </div>
         </div>
         <div class="col-6 col-md-3 fade-right">
           <div class="card card-soft h-100 p-3 text-center ribbon">
-            <img src="assets/png/pastel.png" class="img-fluid mx-auto d-block" alt="Pastel PNG">
+            <img src="/invitacion/assets/png/pastel.png" class="img-fluid mx-auto d-block" alt="Pastel PNG">
             <div class="small mt-2">Pastel</div>
           </div>
         </div>
@@ -329,12 +329,12 @@
       </div>
       <div class="row g-3 gallery">
         <!-- Reemplazar src con sus imágenes -->
-        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto1.jpg" alt="Foto 1"></div>
-        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto2.jpg" alt="Foto 2"></div>
-        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto3.jpg" alt="Foto 3"></div>
-        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto4.jpg" alt="Foto 4"></div>
-        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto5.jpg" alt="Foto 5"></div>
-        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto6.jpg" alt="Foto 6"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="/invitacion/assets/foto1.jpg" alt="Foto 1"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="/invitacion/assets/foto2.jpg" alt="Foto 2"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="/invitacion/assets/foto3.jpg" alt="Foto 3"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="/invitacion/assets/foto4.jpg" alt="Foto 4"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="/invitacion/assets/foto5.jpg" alt="Foto 5"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="/invitacion/assets/foto6.jpg" alt="Foto 6"></div>
       </div>
     </div>
   </section>
@@ -490,9 +490,9 @@
   <!--
     📁 Cómo usar este archivo
     1) Cambia el nombre de la quinceañera, fecha, lugares y textos.
-    2) Reemplaza la IMAGEN del hero en /assets/fondo.jpg (se difumina automáticamente).
-    3) Reemplaza las fotos en /assets/foto1.jpg ... /assets/foto6.jpg si deseas.
-    4) Coloca tu canción en /assets/musica.mp3 (respeta derechos de autor). El botón “Música” la reproducirá.
+    2) Reemplaza la IMAGEN del hero en //invitacion/assets/fondo.jpg (se difumina automáticamente).
+    3) Reemplaza las fotos en //invitacion/assets/foto1.jpg ... //invitacion/assets/foto6.jpg si deseas.
+    4) Coloca tu canción en //invitacion/assets/musica.mp3 (respeta derechos de autor). El botón “Música” la reproducirá.
     5) Opcional: conecta el formulario RSVP a tu Google Forms.
   -->
 </body>
