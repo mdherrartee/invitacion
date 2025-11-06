@@ -1,36 +1,45 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mis XV Años — Invitación</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
 
   <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
   <style>
-    :root{
-      --rosa:#5ec8ff;      /* celeste principal (antes #e6a3b2) */
-      --vino:#0b4f6c;      /* azul profundo/acento (antes #6b2b3b) */
-      --champagne:#eef7ff; /* fondo claro azulado (antes #f8f1e7) */
-      --negro:#111;
+    :root {
+      --rosa: #5ec8ff;
+      /* celeste principal (antes #e6a3b2) */
+      --vino: #0b4f6c;
+      /* azul profundo/acento (antes #6b2b3b) */
+      --champagne: #eef7ff;
+      /* fondo claro azulado (antes #f8f1e7) */
+      --negro: #111;
     }
 
-    html { scroll-behavior: smooth; }
-    body{
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       color: #222;
       background: var(--champagne);
     }
 
     /* Hero con foto difuminada + overlay azul */
-    .hero{
+    .hero {
       position: relative;
       min-height: 100vh;
       display: grid;
@@ -41,95 +50,205 @@
       /* el color ahora va en ::after como overlay; la imagen va en ::before */
       background: none;
     }
+
     /* Capa de la FOTO difuminada (reemplaza la ruta por tu imagen) */
-    .hero::before{
-      content:"";
-      position:absolute; inset:0;
-      background:url('/invitacion/assets/foto1.JPG') center/cover no-repeat;
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('/invitacion/assets/foto1.JPG') center/cover no-repeat;
       /* Difuminado suave y leve zoom para evitar bordes del blur */
       filter: blur(8px) saturate(1.05);
       transform: scale(1.08);
       z-index: 0;
       opacity: .85;
     }
+
     /* Capa de DEGRADADO AZUL encima de la foto para legibilidad */
-    .hero::after{
-      content:"";
-      position:absolute; inset:0;
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
       background:
-        radial-gradient(1200px 600px at 50% -10%, rgba(255,255,255,.15), transparent 60%),
+        radial-gradient(1200px 600px at 50% -10%, rgba(255, 255, 255, .15), transparent 60%),
         linear-gradient(120deg, #0b1d2a, #156ca3 80%, #1f8bd4);
       z-index: 0;
       opacity: .50;
     }
-    .hero .content{ position: relative; z-index:1; }
-    .nombre{ font-family: 'Great Vibes', cursive; font-size: clamp(3rem, 6vw, 6rem); line-height: .9; }
-    .subtexto{ letter-spacing: .12em; text-transform: uppercase; font-weight:600; opacity:.95 }
 
-    .badge-glow{
-      background: rgba(255,255,255,.15);
+    .hero .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .nombre {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: .9;
+    }
+
+    .subtexto {
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      opacity: .95
+    }
+
+    .badge-glow {
+      background: rgba(255, 255, 255, .15);
       backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,.35);
-      color:#fff;
+      border: 1px solid rgba(255, 255, 255, .35);
+      color: #fff;
     }
 
     /* Secciones generales */
-    section{ padding: 80px 0; }
-    .section-title{ font-family:'Great Vibes', cursive; color: var(--vino); font-size: clamp(2.2rem,4.5vw,3.2rem); }
-    .accent{ color: var(--vino); }
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-family: 'Great Vibes', cursive;
+      color: var(--vino);
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    }
+
+    .accent {
+      color: var(--vino);
+    }
 
     /* Tarjetas transparentes */
-    .card-soft{
-      background: rgba(255,255,255,.7);
-      border: 1px solid rgba(0,0,0,.05);
+    .card-soft {
+      background: rgba(255, 255, 255, .7);
+      border: 1px solid rgba(0, 0, 0, .05);
       backdrop-filter: blur(6px);
       border-radius: 1.25rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
     }
 
     /* Botón principal */
-    .btn-rosa{ background: var(--rosa); border: none; color: #fff; }
-    .btn-rosa:hover{ background: #42b2ee; color:#fff; } /* hover celeste más intenso */
+    .btn-rosa {
+      background: var(--rosa);
+      border: none;
+      color: #fff;
+    }
+
+    .btn-rosa:hover {
+      background: #42b2ee;
+      color: #fff;
+    }
+
+    /* hover celeste más intenso */
 
     /* Galería */
-    .gallery img{ border-radius: 1rem; aspect-ratio: 4/5; object-fit: cover; }
+    .gallery img {
+      border-radius: 1rem;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+    }
 
     /* Footer */
-    footer{ background:#fff; }
+    footer {
+      background: #fff;
+    }
 
     /* Animaciones simples */
-    .fade-up{ opacity:0; transform: translateY(12px); transition: all .8s ease; }
-    .fade-up.appear{ opacity:1; transform: translateY(0); }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: all .8s ease;
+    }
+
+    .fade-up.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* Extras de animación */
-    .fade-left{ opacity:0; transform: translateX(-18px); transition: all .9s ease; }
-    .fade-right{ opacity:0; transform: translateX(18px); transition: all .9s ease; }
-    .fade-left.appear, .fade-right.appear{ opacity:1; transform: translateX(0); }
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-18px);
+      transition: all .9s ease;
+    }
+
+    .fade-right {
+      opacity: 0;
+      transform: translateX(18px);
+      transition: all .9s ease;
+    }
+
+    .fade-left.appear,
+    .fade-right.appear {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
     /* Stickers PNG decorativos */
-    .sticker{
-      position:absolute; z-index:1; opacity:.9; filter: drop-shadow(0 10px 18px rgba(0,0,0,.15));
+    .sticker {
+      position: absolute;
+      z-index: 1;
+      opacity: .9;
+      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .15));
       animation: sway 6s ease-in-out infinite;
-      pointer-events:none;
+      pointer-events: none;
     }
-    .sticker--left{ left: 1rem; bottom: 1rem; max-width: min(26vw, 220px); animation-delay: .3s; }
-    .sticker--right{ right: 1rem; top: 1rem; max-width: min(24vw, 200px); animation-delay: 1.1s; }
 
-    @keyframes sway{ 0%,100%{ transform: rotate(-2deg) translateY(0); } 50%{ transform: rotate(2deg) translateY(-6px); } }
+    .sticker--left {
+      left: 1rem;
+      bottom: 1rem;
+      max-width: min(26vw, 220px);
+      animation-delay: .3s;
+    }
+
+    .sticker--right {
+      right: 1rem;
+      top: 1rem;
+      max-width: min(24vw, 200px);
+      animation-delay: 1.1s;
+    }
+
+    @keyframes sway {
+
+      0%,
+      100% {
+        transform: rotate(-2deg) translateY(0);
+      }
+
+      50% {
+        transform: rotate(2deg) translateY(-6px);
+      }
+    }
 
     /* Pétalos flotando: de rosa a celeste suave */
-    .petal{ position: fixed; top:-5vh; width: 18px; height: 18px; background: radial-gradient(circle at 40% 40%, #bfe8ff 0 45%, transparent 46%); border-radius: 60% 40% 60% 40%; opacity:.65; pointer-events:none; animation: fall linear forwards; }
-    @keyframes fall{ to { transform: translateY(110vh) rotate(360deg); opacity:.9; } }
+    .petal {
+      position: fixed;
+      top: -5vh;
+      width: 18px;
+      height: 18px;
+      background: radial-gradient(circle at 40% 40%, #bfe8ff 0 45%, transparent 46%);
+      border-radius: 60% 40% 60% 40%;
+      opacity: .65;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: .9;
+      }
+    }
 
     /* Cinta decorativa */
-    .ribbon{
-      background: linear-gradient(90deg, rgba(255,255,255,.8), rgba(255,255,255,.5));
-      border: 1px dashed rgba(0,0,0,.06);
+    .ribbon {
+      background: linear-gradient(90deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .5));
+      border: 1px dashed rgba(0, 0, 0, .06);
       border-radius: 1rem;
     }
 
     /* Solo color: redefinir text-danger a azul para no tocar el HTML */
-    .text-danger { color: #1f8bd4 !important; }
+    .text-danger {
+      color: #1f8bd4 !important;
+    }
   </style>
 
 </head>
@@ -142,7 +261,8 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
       <a class="navbar-brand fw-semibold" href="#inicio"><i class="bi bi-stars me-2 text-danger"></i>Mis XV Años</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Menú"><span class="navbar-toggler-icon"></span></button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
+        aria-expanded="false" aria-label="Menú"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="#detalles">Detalles</a></li>
@@ -158,167 +278,114 @@
   <!-- Hero -->
   <header id="inicio" class="hero d-flex align-items-center">
     <div class="content container">
-      <div class="badge badge-glow rounded-pill px-3 py-2 mb-4 d-inline-flex align-items-center gap-2">
-        <i class="bi bi-flower1"></i>
-        <span class="small">Estás cordialmente invitado(a)</span>
-      </div>
       <h1 class="nombre mb-3">Daira Maité <br> Flores Bartolón</h1>
-      <p class="lead subtexto">Celebración de XV Años</p>
+      <p class="lead subtexto">Mis XV Años</p>
       <div class="row justify-content-center mt-4 g-3">
         <div class="col-10 col-md-8 col-lg-6">
           <div class="card card-soft p-4">
-            <p class="mb-1">Sábado <strong class="accent">22 de noviembre de 2025</strong> . 16:00 Horas</p>
-            <p class="mb-0">Salón Genesis <br> San José La Máquina, Suchitepéquez</p>
-            <div class="mt-3 d-flex justify-content-center gap-3 flex-wrap" id="countdown">
-              <div class="text-center"><div class="fs-2 fw-bold" id="dd">--</div><div class="small">Días</div></div>
-              <div class="text-center"><div class="fs-2 fw-bold" id="hh">--</div><div class="small">Horas</div></div>
-              <div class="text-center"><div class="fs-2 fw-bold" id="mm">--</div><div class="small">Min</div></div>
-              <div class="text-center"><div class="fs-2 fw-bold" id="ss">--</div><div class="small">Seg</div></div>
-            </div>
-            <!--<div class="mt-3">
-              <a href="#rsvp" class="btn btn-rosa btn-lg"><i class="bi bi-envelope-heart me-2"></i>Confirmar asistencia</a>
-            </div>-->
+            <p class="mb-0">
+              Agradezco a Dios por la vida, <br>
+              Por mis padres y por todas las bendiciones recibidas.<br>
+              Hoy que llego a mis quince años, <br>
+              deseo compartir mi felicidad con ustedes, cumplo un sueño que esperé con emoción,<br>
+              y quiero que estén conmigo para celebrar<br>
+              este día tan especial en mi vida.<br>
+            </p>
           </div>
         </div>
       </div>
     </div>
-      <!-- Stickers PNG (reemplaza rutas por tus propios PNGs con fondo transparente) -->
-    <img src="/invitacion/assets/png/quinceañera-left.png" alt="Quinceañera" class="sticker sticker--left d-none d-sm-block">
-    <img src="/invitacion/assets/png/tiara-rosas.png" alt="Tiara y rosas" class="sticker sticker--right d-none d-sm-block">
+    <!-- Stickers PNG (reemplaza rutas por tus propios PNGs con fondo transparente) -->
+    <img src="/invitacion/assets/png/quinceañera-left.png" alt="Quinceañera"
+      class="sticker sticker--left d-none d-sm-block">
+    <img src="/invitacion/assets/png/tiara-rosas.png" alt="Tiara y rosas"
+      class="sticker sticker--right d-none d-sm-block">
   </header>
+
 
   <!-- Detalles -->
   <section id="detalles" class="bg-white">
     <div class="container">
       <div class="text-center mb-5 fade-up">
+        <p class="text-muted mb-5">Mis Padres</p>
+        <p class="nombre mb-5">Luis y Mariana</p>
+        <p class="text-muted">Tienen el gusto de invitarlos a compartir éste día tan especial.</p>
+      </div>
+      <div class="text-center mb-5 fade-up">
         <h2 class="section-title">Detalles del evento</h2>
-        <p class="text-muted">Será un honor compartir este momento tan especial contigo.</p>
       </div>
       <div class="row g-4">
-        <div class="col-md-4 fade-up">
-          <div class="card h-100 card-soft p-4">
-            <div class="d-flex align-items-center gap-3 mb-2">
-              <i class="bi bi-geo-alt fs-3 text-danger"></i>
-              <h5 class="mb-0">Ceremonia religiosa</h5>
-            </div>
-            <p class="mb-2">Parroquia Nuestra Señora — 4:30 PM</p>
-            <p class="small text-muted">Dirección: 1a. Calle 1-01, Zona 1, Ciudad de Guatemala.</p>
-          </div>
-        </div>
         <div class="col-md-4 fade-up">
           <div class="card h-100 card-soft p-4">
             <div class="d-flex align-items-center gap-3 mb-2">
               <i class="bi bi-balloon-heart fs-3 text-danger"></i>
               <h5 class="mb-0">Recepción</h5>
             </div>
-            <p class="mb-2">Salón Aurora — 6:00 PM</p>
-            <p class="small text-muted">Dirección: Km 10 Carretera a El Salvador, Condado X.</p>
+            <p class="mb-2">Sábado 22 de Noviembre - 16:00 Horas</p>
+            <p class="small text-muted">Salón Génesis Línea A-11, a la par de gasolinera Don Arturo</p>
           </div>
         </div>
-        <div class="col-md-4 fade-up">
+        <div class="col-md-4 mb-5 fade-up">
           <div class="card h-100 card-soft p-4">
-            <div class="d-flex align-items-center gap-3 mb-2">
+            <div class="d-flex align-items-center gap-3">
               <i class="bi bi-stars fs-3 text-danger"></i>
               <h5 class="mb-0">Código de vestimenta</h5>
             </div>
             <p class="mb-2">Formal de gala</p>
-            <p class="small text-muted">Colores sugeridos: marfil, vino o azul noche. Evitar tonos totalmente blancos.</p>
+            <p class="small text-muted">Evitar tonos totalmente verdes.</p>
+          </div>
+  </div>
+  <div class="text-center fade-up">
+    <h2 class="section-title">Ya solo faltan</h2>
+  </div>
+  <div class="row justify-content-center mt-4 g-3">
+    <div class="col-10 col-md-8 col-lg-6">
+      <div class="card card-soft p-4">
+        <div class="mt-3 d-flex justify-content-center gap-3 flex-wrap" id="countdown">
+          <div class="text-center">
+            <div class="fs-2 fw-bold" id="dd">--</div>
+            <div class="small">Días</div>
+          </div>
+          <div class="text-center">
+            <div class="fs-2 fw-bold" id="hh">--</div>
+            <div class="small">Horas</div>
+          </div>
+          <div class="text-center">
+            <div class="fs-2 fw-bold" id="mm">--</div>
+            <div class="small">Min</div>
+          </div>
+          <div class="text-center">
+            <div class="fs-2 fw-bold" id="ss">--</div>
+            <div class="small">Seg</div>
           </div>
         </div>
-      </div>
 
-      <div class="row mt-4 g-4">
-        <div class="col-md-6 fade-up">
-          <div class="ratio ratio-16x9 card-soft overflow-hidden">
-            <!-- Reemplace la ubicación por la de su evento -->
-            <iframe src="https://www.google.com/maps?q=Guatemala%20City&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div>
-        <div class="col-md-6 fade-up">
-          <div class="card h-100 card-soft p-4">
-            <h5><i class="bi bi-gift me-2 text-danger"></i> Mesa de regalos (opcional)</h5>
-            <p class="small text-muted">Tu presencia es el mejor regalo, pero si deseas obsequiar algo: </p>
-            <ul class="mb-0">
-              <li>Sobre de regalo o transferencia.</li>
-              <li>Tiendas: Ej. Siman / Cemaco (código: QUINCE-2026).</li>
-            </ul>
-          </div>
-        </div>
+      </div>
+    </div>
+  </div>
       </div>
     </div>
   </section>
+
+
+ 
+
+
 
   <!-- Itinerario -->
   <section id="itinerario">
     <div class="container">
       <div class="text-center mb-5 fade-up">
-        <h2 class="section-title">Itinerario</h2>
-        <p class="text-muted">Horarios sujetos a pequeños cambios.</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-lg-10 mx-auto">
-          <div class="list-group shadow-sm">
-            <div class="list-group-item d-flex justify-content-between align-items-center">
-              <div><i class="bi bi-geo-alt-fill me-2 text-danger"></i>Ceremonia religiosa</div>
-              <span class="badge text-bg-light">4:30 PM</span>
-            </div>
-            <div class="list-group-item d-flex justify-content-between align-items-center">
-              <div><i class="bi bi-bus-front-fill me-2 text-danger"></i>Traslado al salón</div>
-              <span class="badge text-bg-light">5:30 PM</span>
-            </div>
-            <div class="list-group-item d-flex justify-content-between align-items-center">
-              <div><i class="bi bi-bullseye me-2 text-danger"></i>Recepción &amp; fotos</div>
-              <span class="badge text-bg-light">6:00 PM</span>
-            </div>
-            <div class="list-group-item d-flex justify-content-between align-items-center">
-              <div><i class="bi bi-disc-fill me-2 text-danger"></i>Vals y primer brindis</div>
-              <span class="badge text-bg-light">7:00 PM</span>
-            </div>
-            <div class="list-group-item d-flex justify-content-between align-items-center">
-              <div><i class="bi bi-music-note-beamed me-2 text-danger"></i>Baile y música</div>
-              <span class="badge text-bg-light">7:30 PM</span>
-            </div>
-          </div>
-        </div>
+        <h2 class="section-title">Tips y Notas</h2>
+        <p class="text-muted">
+          1. El evento tendra zona de fotos<br> ¡Así que ven listo/a para posar! <br><br>
+          2. Prepara tu cámara: habrá momentos inolvidables que querrás capturar.<br><br>
+          3. Llega con tiempo para disfrutar cada instante.<br>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Decoraciones PNG -->
-  <section id="decoraciones" class="bg-white py-5">
-    <div class="container">
-      <div class="text-center mb-4 fade-up">
-        <h2 class="section-title">Detalles que enamoran</h2>
-        <p class="text-muted">Puedes usar PNGs con fondo transparente para resaltar el estilo.</p>
-      </div>
-      <div class="row g-3 align-items-stretch">
-        <div class="col-6 col-md-3 fade-left">
-          <div class="card card-soft h-100 p-3 text-center ribbon">
-            <img src="/invitacion/assets/png/tiara.png" class="img-fluid mx-auto d-block" alt="Tiara PNG">
-            <div class="small mt-2">Tiara</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-3 fade-up">
-          <div class="card card-soft h-100 p-3 text-center ribbon">
-            <img src="/invitacion/assets/png/ramo.png" class="img-fluid mx-auto d-block" alt="Ramo PNG">
-            <div class="small mt-2">Ramo</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-3 fade-up">
-          <div class="card card-soft h-100 p-3 text-center ribbon">
-            <img src="/invitacion/assets/png/zapatos.png" class="img-fluid mx-auto d-block" alt="Zapatos PNG">
-            <div class="small mt-2">Zapatos</div>
-          </div>
-        </div>
-        <div class="col-6 col-md-3 fade-right">
-          <div class="card card-soft h-100 p-3 text-center ribbon">
-            <img src="/invitacion/assets/png/pastel.png" class="img-fluid mx-auto d-block" alt="Pastel PNG">
-            <div class="small mt-2">Pastel</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Galería -->
   <section id="galeria" class="bg-white">
@@ -344,59 +411,12 @@
     <div class="container">
       <div class="text-center mb-5 fade-up">
         <h2 class="section-title">Confirma tu asistencia</h2>
-        <p class="text-muted">Por favor confirma antes del <strong>15 de septiembre de 2026</strong>.</p>
-      </div>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <form class="card-soft p-4 p-md-5 fade-up" id="rsvpForm"
-            method="POST"
-            action="https://docs.google.com/forms/d/e/FORM_ID/formResponse"
-            target="hidden_iframe_rsvp"
-            onsubmit="rsvpSubmitting()">
-            <!-- ⚠️ Sustituye FORM_ID por el ID de tu Google Form -->
-            <!-- Para cada campo, cambia entry.XYZ por el entry real de tu Form -->
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label">Nombre completo</label>
-                <input type="text" class="form-control" name="entry.1234567890" required>
-                <!-- entry.1234567890 ⇒ Nombre completo -->
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" name="entry.2345678901" required>
-                <!-- entry.2345678901 ⇒ Correo -->
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">¿Asistirás?</label>
-                <select class="form-select" name="entry.3456789012" required>
-                  <option value="">Seleccionar...</option>
-                  <option>Sí, con mucho gusto</option>
-                  <option>No podré asistir</option>
-                </select>
-                <!-- entry.3456789012 ⇒ Asistencia -->
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Número de acompañantes</label>
-                <input type="number" class="form-control" name="entry.4567890123" min="0" max="6" value="0" required>
-                <!-- entry.4567890123 ⇒ Acompañantes -->
-              </div>
-              <div class="col-12">
-                <label class="form-label">Mensaje</label>
-                <textarea class="form-control" name="entry.5678901234" rows="3" placeholder="Escribe un deseo o comentario"></textarea>
-                <!-- entry.5678901234 ⇒ Mensaje -->
-              </div>
-              <!-- Campo técnico para evitar redirección (propio de Google Forms) -->
-              <input type="hidden" name="fvv" value="1">
-              <input type="hidden" name="fbzx" value="-1234567890123456789">
-              <input type="hidden" name="pageHistory" value="0">
-            </div>
-            <div class="d-flex align-items-center gap-3 mt-4">
-              <button class="btn btn-rosa btn-lg" type="submit"><i class="bi bi-send me-2"></i>Enviar</button>
-              <div id="formMsg" class="small text-muted"></div>
-            </div>
-          </form>
-          <!-- Iframe oculto para capturar la respuesta sin salir del sitio -->
-          <iframe name="hidden_iframe_rsvp" id="hidden_iframe_rsvp" style="display:none;"></iframe>
+        <p class="text-muted">
+          Por favor confirma lo mas pronto posible.<br>
+          Para confirmar solo preciona el botón de abajo y sigue los pasos.
+        </p>
+        <div class="mt-3">
+          <a href="#rsvp" class="btn btn-rosa btn-lg"><i class="bi bi-envelope-heart me-2"></i>Confirmar asistencia</a>
         </div>
       </div>
     </div>
@@ -404,13 +424,15 @@
 
   <footer class="py-4">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-      <div class="small">Con cariño, la familia <span class="accent fw-semibold">Apellido</span>.</div>
-      <div class="small text-muted">#MisXV · <i class="bi bi-instagram"></i> @usuario</div>
+      <div class="small">Con cariño, familia <span class="accent fw-semibold">Flores Bartolón</span>.</div>
+      <div class="small text-muted">#MisXV</div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
   <script>
     // ===== Música =====
     const music = document.getElementById('bg-music');
@@ -418,10 +440,10 @@
     let playing = false;
 
     musicBtn?.addEventListener('click', async () => {
-      try{
-        if(!playing){ await music.play(); playing = true; musicBtn.innerHTML = '<i class="bi bi-pause-fill me-1"></i> Pausar'; }
+      try {
+        if (!playing) { await music.play(); playing = true; musicBtn.innerHTML = '<i class="bi bi-pause-fill me-1"></i> Pausar'; }
         else { music.pause(); playing = false; musicBtn.innerHTML = '<i class="bi bi-play-fill me-1"></i> Música'; }
-      }catch(e){ alert('Para reproducir la música, da permiso al navegador o presiona el botón nuevamente.'); }
+      } catch (e) { alert('Para reproducir la música, da permiso al navegador o presiona el botón nuevamente.'); }
     });
 
     // ===== Countdown =====
@@ -431,58 +453,58 @@
     const mm = document.getElementById('mm');
     const ss = document.getElementById('ss');
 
-    function updateCountdown(){
+    function updateCountdown() {
       const now = new Date();
       const diff = target - now;
-      if(diff <= 0){ dd.textContent = hh.textContent = mm.textContent = ss.textContent = '00'; return; }
-      const d = Math.floor(diff / (1000*60*60*24));
-      const h = Math.floor((diff / (1000*60*60)) % 24);
-      const m = Math.floor((diff / (1000*60)) % 60);
+      if (diff <= 0) { dd.textContent = hh.textContent = mm.textContent = ss.textContent = '00'; return; }
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
       const s = Math.floor((diff / 1000) % 60);
-      dd.textContent = String(d).padStart(2,'0');
-      hh.textContent = String(h).padStart(2,'0');
-      mm.textContent = String(m).padStart(2,'0');
-      ss.textContent = String(s).padStart(2,'0');
+      dd.textContent = String(d).padStart(2, '0');
+      hh.textContent = String(h).padStart(2, '0');
+      mm.textContent = String(m).padStart(2, '0');
+      ss.textContent = String(s).padStart(2, '0');
     }
     setInterval(updateCountdown, 1000); updateCountdown();
 
     // ===== RSVP (Google Forms) =====
-    function rsvpSubmitting(){
+    function rsvpSubmitting() {
       const msg = document.getElementById('formMsg');
       msg.textContent = 'Enviando confirmación…';
     }
 
     const hiddenFrame = document.getElementById('hidden_iframe_rsvp');
-    hiddenFrame?.addEventListener('load', ()=>{
+    hiddenFrame?.addEventListener('load', () => {
       const form = document.getElementById('rsvpForm');
       const msg = document.getElementById('formMsg');
-      if(msg){
+      if (msg) {
         msg.textContent = '¡Gracias! Hemos recibido tu confirmación.';
       }
       form?.reset();
     });
 
     // ===== Animación al hacer scroll =====
-    const revealObserver = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('appear'); } });
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('appear'); } });
     }, { threshold: .12 });
-    document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el=>revealObserver.observe(el));
+    document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => revealObserver.observe(el));
 
     // ===== Pétalos flotando (decorativo) =====
     const NUM_PETALS = 28;
-    function spawnPetal(){
+    function spawnPetal() {
       const p = document.createElement('div');
       p.className = 'petal';
-      const startLeft = Math.random()*100; // vw
-      const duration = 10 + Math.random()*12; // s
-      const delay = Math.random()*5; // s
+      const startLeft = Math.random() * 100; // vw
+      const duration = 10 + Math.random() * 12; // s
+      const delay = Math.random() * 5; // s
       p.style.left = startLeft + 'vw';
       p.style.animationDuration = duration + 's';
       p.style.animationDelay = delay + 's';
       document.body.appendChild(p);
-      setTimeout(()=> p.remove(), (duration+delay)*1000);
+      setTimeout(() => p.remove(), (duration + delay) * 1000);
     }
-    for(let i=0;i<NUM_PETALS;i++){ spawnPetal(); }
+    for (let i = 0; i < NUM_PETALS; i++) { spawnPetal(); }
     setInterval(spawnPetal, 2000);
 
   </script>
@@ -496,4 +518,5 @@
     5) Opcional: conecta el formulario RSVP a tu Google Forms.
   -->
 </body>
+
 </html>
