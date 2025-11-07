@@ -56,7 +56,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: url('/invitacion/assets/foto1.JPG') center/cover no-repeat;
+      background: url('assets/foto1.JPG') center/cover no-repeat;
       /* Difuminado suave y leve zoom para evitar bordes del blur */
       filter: blur(8px) saturate(1.05);
       transform: scale(1.08);
@@ -249,6 +249,55 @@
     .text-danger {
       color: #1f8bd4 !important;
     }
+
+    /* Contenedor a todo el ancho, esquinas cuadradas */
+    .img-separator-full {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      /* sombra suave */
+    }
+
+    /* Imagen full-width sin deformar */
+    .img-separator-full img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.05) contrast(1.02);
+    }
+
+    /* Vignette/difuminado suave en los bordes internos */
+    .img-separator-full::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 60px rgba(0, 0, 0, .16);
+    }
+
+    /* (Opcional) Halo suave para un look más “wow” */
+    .img-separator-full::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(120% 60% at 50% 50%, rgba(255, 255, 255, .22), transparent 60%);
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: .22;
+    }
+
+    /* Animación de entrada sutil */
+    .fade-in-zoom {
+      opacity: 0;
+      transform: translateY(14px) scale(.985);
+      transition: opacity .9s cubic-bezier(.22, .61, .36, 1),
+        transform .9s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    .fade-in-zoom.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   </style>
 
 </head>
@@ -305,7 +354,7 @@
 
   <!-- Detalles -->
   <section id="detalles" class="bg-white">
-    <div class="container">
+    <div class="container-fluid">
       <div class="text-center mb-5 fade-up">
         <p class="text-muted mb-5">Mis Padres</p>
         <p class="nombre mb-5">Luis y Mariana</p>
@@ -316,11 +365,22 @@
           <div class="">
             <div class="text-center">
               <h5 class="mb-2 text-center">Familia Pocasangre Flores</h5>
-            <p class="small text-muted">Número de Invitados: <span class="accent fw-semibold">3</span><br>Número de Mesa: <span class="accent fw-semibold">1</span</p>
-          </div>
+              <p class="small text-muted">Número de Invitados: <span class="accent fw-semibold">3</span><br>Número de
+                Mesa: <span class="accent fw-semibold">1</span< /p>
+            </div>
           </div>
         </div>
-        </div>  
+      </div>
+
+      <!-- Separador de imagen full-bleed SIN bordes redondeados -->
+      <div class="container-fluid my-5 p-0">
+        <div class="img-separator-full fade-in-zoom">
+          <img src="assets/foto2.jpg" alt="Separador decorativo">
+        </div>
+      </div>
+
+
+
       <div class="text-center mb-5 fade-up">
         <h2 class="section-title">Detalles del evento</h2>
       </div>
@@ -344,41 +404,56 @@
             <p class="mb-2">Formal de gala</p>
             <p class="small text-muted">Evitar tonos totalmente verdes.</p>
           </div>
-  </div>
-  <div class="text-center fade-up">
-    <h2 class="section-title">Ya solo faltan</h2>
-  </div>
-  <div class="row justify-content-center g-3">
-    <div class="col-10 col-md-8 col-lg-6">
-      <div class="card card-soft p-4">
-        <div class="mt-3 d-flex justify-content-center gap-3 flex-wrap" id="countdown">
-          <div class="text-center">
-            <div class="fs-2 fw-bold" id="dd">--</div>
-            <div class="small">Días</div>
-          </div>
-          <div class="text-center">
-            <div class="fs-2 fw-bold" id="hh">--</div>
-            <div class="small">Horas</div>
-          </div>
-          <div class="text-center">
-            <div class="fs-2 fw-bold" id="mm">--</div>
-            <div class="small">Min</div>
-          </div>
-          <div class="text-center">
-            <div class="fs-2 fw-bold" id="ss">--</div>
-            <div class="small">Seg</div>
+        </div>
+
+
+        <!-- Separador de imagen full-bleed SIN bordes redondeados -->
+        <div class="container-fluid my-5 p-0">
+          <div class="img-separator-full fade-in-zoom">
+            <img src="assets/foto2.jpg" alt="Separador decorativo">
           </div>
         </div>
 
-      </div>
-    </div>
-  </div>
+
+        <div class="text-center fade-up">
+          <h2 class="section-title">Ya solo faltan</h2>
+        </div>
+        <div class="row justify-content-center g-3">
+          <div class="col-10 col-md-8 col-lg-6">
+            <div class="card card-soft p-4">
+              <div class="mt-3 d-flex justify-content-center gap-3 flex-wrap" id="countdown">
+                <div class="text-center">
+                  <div class="fs-2 fw-bold" id="dd">--</div>
+                  <div class="small">Días</div>
+                </div>
+                <div class="text-center">
+                  <div class="fs-2 fw-bold" id="hh">--</div>
+                  <div class="small">Horas</div>
+                </div>
+                <div class="text-center">
+                  <div class="fs-2 fw-bold" id="mm">--</div>
+                  <div class="small">Min</div>
+                </div>
+                <div class="text-center">
+                  <div class="fs-2 fw-bold" id="ss">--</div>
+                  <div class="small">Seg</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
 
- 
+  <!-- Separador de imagen full-bleed SIN bordes redondeados -->
+  <div class="container-fluid my-5 p-0">
+    <div class="img-separator-full fade-in-zoom">
+      <img src="assets/foto4.jpg" alt="Separador decorativo">
+    </div>
+  </div>
 
 
 
@@ -396,6 +471,13 @@
     </div>
   </section>
 
+
+  <!-- Separador de imagen full-bleed SIN bordes redondeados -->
+  <div class="container-fluid my-5 p-0">
+    <div class="img-separator-full fade-in-zoom">
+      <img src="assets/foto5.jpg" alt="Separador decorativo">
+    </div>
+  </div>
 
   <!-- Galería -->
   <section id="galeria" class="bg-white">
@@ -416,6 +498,16 @@
     </div>
   </section>
 
+
+
+  <!-- Separador de imagen full-bleed SIN bordes redondeados -->
+  <div class="container-fluid my-5 p-0">
+    <div class="img-separator-full fade-in-zoom">
+      <img src="assets/foto6.jpg" alt="Separador decorativo">
+    </div>
+  </div>
+
+
   <!-- RSVP -->
   <section id="rsvp">
     <div class="container">
@@ -431,6 +523,14 @@
       </div>
     </div>
   </section>
+
+
+  <!-- Separador de imagen full-bleed SIN bordes redondeados -->
+  <div class="container-fluid my-5 p-0">
+    <div class="img-separator-full fade-in-zoom">
+      <img src="assets/foto7.jpg" alt="Separador decorativo">
+    </div>
+  </div>
 
   <footer class="py-4">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
@@ -517,16 +617,27 @@
     for (let i = 0; i < NUM_PETALS; i++) { spawnPetal(); }
     setInterval(spawnPetal, 2000);
 
-  </script>
+    // Activa la animación cuando la banda entra al viewport
+    (function () {
+      const els = document.querySelectorAll('.fade-in-zoom');
+      if (!('IntersectionObserver' in window) || els.length === 0) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target); // solo una vez
+          }
+        });
+      }, { threshold: .18 });
+      els.forEach(el => io.observe(el));
+    })();
 
-  <!--
-    📁 Cómo usar este archivo
-    1) Cambia el nombre de la quinceañera, fecha, lugares y textos.
-    2) Reemplaza la IMAGEN del hero en //invitacion/assets/fondo.jpg (se difumina automáticamente).
-    3) Reemplaza las fotos en //invitacion/assets/foto1.jpg ... //invitacion/assets/foto6.jpg si deseas.
-    4) Coloca tu canción en //invitacion/assets/musica.mp3 (respeta derechos de autor). El botón “Música” la reproducirá.
-    5) Opcional: conecta el formulario RSVP a tu Google Forms.
-  -->
+
+
+  </script>
 </body>
 
 </html>
