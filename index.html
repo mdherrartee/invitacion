@@ -17,6 +17,22 @@
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
+
+  <!-- (opcional) mejora de rendimiento -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fuente Tangerine (400 y 700) -->
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+
+
   <style>
     :root {
       --rosa: #5ec8ff;
@@ -58,10 +74,9 @@
       inset: 0;
       background: url('assets/foto1.JPG') center/cover no-repeat;
       /* Difuminado suave y leve zoom para evitar bordes del blur */
-      filter: blur(8px) saturate(1.05);
       transform: scale(1.08);
       z-index: 0;
-      opacity: .85;
+      opacity: 1;
     }
 
     /* Capa de DEGRADADO AZUL encima de la foto para legibilidad */
@@ -70,7 +85,7 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(1200px 600px at 50% -10%, rgba(255, 255, 255, .15), transparent 60%),
+        radial-gradient(1200px 600px at 80% -10%, rgba(255, 255, 255, .15), transparent 100%),
         linear-gradient(120deg, #0b1d2a, #156ca3 80%, #1f8bd4);
       z-index: 0;
       opacity: .50;
@@ -298,6 +313,49 @@
       opacity: 1;
       transform: translateY(0) scale(1);
     }
+
+
+    /* Ejemplo de uso */
+    .textosdestacados {
+      font-family: 'Tangerine', cursive;
+    }
+
+    /* Para cualquier otro texto */
+    .textosbasicos {
+      font-family: 'Tangerine', cursive;
+      font-weight: 400;
+    }
+
+
+    .cormorant-upright-light {
+      font-family: "Cormorant Upright", serif;
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    .cormorant-upright-regular {
+      font-family: "Cormorant Upright", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .cormorant-upright-medium {
+      font-family: "Cormorant Upright", serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .cormorant-upright-semibold {
+      font-family: "Cormorant Upright", serif;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    .cormorant-upright-bold {
+      font-family: "Cormorant Upright", serif;
+      font-weight: 700;
+      font-style: normal;
+    }
   </style>
 
 </head>
@@ -309,7 +367,8 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-semibold" href="#inicio"><i class="bi bi-stars me-2 text-danger"></i>Mis XV Años</a>
+      <a class="navbar-brand textosdestacados" href="#inicio"><i class="bi bi-stars me-2 text-danger"></i>Mis XV
+        Años</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
         aria-expanded="false" aria-label="Menú"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="nav">
@@ -327,12 +386,13 @@
   <!-- Hero -->
   <header id="inicio" class="hero d-flex align-items-center">
     <div class="content container">
+      <br><br><br><br><br><br>
       <h1 class="nombre mb-3">Daira Maité <br> Flores Bartolón</h1>
-      <p class="lead subtexto">Mis XV Años</p>
+      <p class="cormorant-upright-light" style="font-size: 4rem;">Mis XV Años</p>
       <div class="row justify-content-center mt-4 g-3">
         <div class="col-10 col-md-8 col-lg-6">
           <div class="card card-soft p-4">
-            <p class="mb-0">
+            <p class="mb-0 cormorant-upright-light" style="font-size: 1.1rem;">
               Agradezco a Dios por la vida, <br>
               Por mis padres y por todas las bendiciones recibidas.<br>
               Hoy que llego a mis quince años, <br>
@@ -356,26 +416,28 @@
   <section id="detalles" class="bg-white">
     <div class="container-fluid">
       <div class="text-center mb-5 fade-up">
-        <p class="text-muted mb-5">Mis Padres</p>
+        <p class="text-muted mb-5 cormorant-upright-light" style="font-size: 1.5rem;">Mis Padres</p>
         <p class="nombre mb-5">Luis y Mariana</p>
-        <p class="text-muted">Tienen el gusto de invitarlos a compartir éste día tan especial.</p>
+        <p class="text-muted cormorant-upright-light" style="font-size: 1.5rem;">Tienen el gusto de invitarlos a
+          compartir éste día tan especial.</p>
       </div>
       <div class="row g-4 mb-5">
         <div class="col-md-4 fade-up">
           <div class="">
             <div class="text-center">
-              <h5 class="mb-2 text-center">Familia Pocasangre Flores</h5>
-              <p class="small text-muted">Número de Invitados: <span class="accent fw-semibold">3</span><br>Número de
-                Mesa: <span class="accent fw-semibold">1</span< /p>
+              <h5 class="mb-2 text-center cormorant-upright-bold" style="font-size: 1.5rem;">Familia Pocasangre Flores
+              </h5>
+              <p class="small text-muted cormorant-upright-light" style="font-size: 1.2rem;">Número de Invitados: <span
+                  class="accent fw-semibold">3</span></p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Separador de imagen full-bleed SIN bordes redondeados -->
-      <div class="container-fluid my-5 p-0">
+      <div class="container-fluid mb-5 p-0">
         <div class="img-separator-full fade-in-zoom">
-          <img src="assets/foto2.jpg" alt="Separador decorativo">
+          <img src="assets/foto7.jpg" alt="Separador decorativo">
         </div>
       </div>
 
@@ -389,28 +451,32 @@
           <div class="card h-100 card-soft p-4">
             <div class="d-flex align-items-center gap-3 mb-2">
               <i class="bi bi-balloon-heart fs-3 text-danger"></i>
-              <h5 class="mb-0">Recepción</h5>
+              <h5 class="mb-0 cormorant-upright-bold" style="font-size: 1.5rem;">Recepción</h5>
             </div>
-            <p class="mb-2">Sábado 22 de Noviembre - 16:00 Horas</p>
-            <p class="small text-muted">Salón Génesis Línea A-11, a la par de gasolinera Don Arturo</p>
+            <p class="mb-2 cormorant-upright-semibold" style="font-size: 1.1rem;">Sábado 22 de Noviembre - 16:00 Horas
+            </p>
+            <p class="small text-muted cormorant-upright-light" style="font-size: 1.1rem;">Salón Génesis Línea A-11, a
+              la par de gasolinera Don
+              Arturo</p>
           </div>
         </div>
         <div class="col-md-4 mb-5 fade-up">
           <div class="card h-100 card-soft p-4">
             <div class="d-flex align-items-center gap-3">
               <i class="bi bi-stars fs-3 text-danger"></i>
-              <h5 class="mb-0">Código de vestimenta</h5>
+              <h5 class="mb-0 cormorant-upright-bold" style="font-size: 1.5rem;">Código de vestimenta</h5>
             </div>
-            <p class="mb-2">Formal de gala</p>
-            <p class="small text-muted">Evitar tonos totalmente verdes.</p>
+            <p class="mb-2 cormorant-upright-semibold" style="font-size: 1.1rem;">Formal de gala</p>
+            <p class="small text-muted cormorant-upright-light" style="font-size: 1.1rem;">Evitar tonos totalmente
+              verdes.</p>
           </div>
         </div>
 
 
         <!-- Separador de imagen full-bleed SIN bordes redondeados -->
-        <div class="container-fluid my-5 p-0">
+        <div class="container-fluid mb-5 p-0">
           <div class="img-separator-full fade-in-zoom">
-            <img src="assets/foto2.jpg" alt="Separador decorativo">
+            <img src="assets/foto8.jpg" alt="Separador decorativo">
           </div>
         </div>
 
@@ -423,23 +489,22 @@
             <div class="card card-soft p-4">
               <div class="mt-3 d-flex justify-content-center gap-3 flex-wrap" id="countdown">
                 <div class="text-center">
-                  <div class="fs-2 fw-bold" id="dd">--</div>
-                  <div class="small">Días</div>
+                  <div class="fs-2 fw-bold cormorant-upright-bold" id="dd">--</div>
+                  <div class="small cormorant-upright-bold">Días</div>
                 </div>
                 <div class="text-center">
-                  <div class="fs-2 fw-bold" id="hh">--</div>
-                  <div class="small">Horas</div>
+                  <div class="fs-2 fw-bold cormorant-upright-bold" id="hh">--</div>
+                  <div class="small cormorant-upright-bold">Horas</div>
                 </div>
                 <div class="text-center">
-                  <div class="fs-2 fw-bold" id="mm">--</div>
-                  <div class="small">Min</div>
+                  <div class="fs-2 fw-bold cormorant-upright-bold" id="mm">--</div>
+                  <div class="small cormorant-upright-bold">Min</div>
                 </div>
                 <div class="text-center">
-                  <div class="fs-2 fw-bold" id="ss">--</div>
-                  <div class="small">Seg</div>
+                  <div class="fs-2 cormorant-upright-bold" id="ss">--</div>
+                  <div class="small cormorant-upright-bold">Seg</div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -449,9 +514,12 @@
 
 
   <!-- Separador de imagen full-bleed SIN bordes redondeados -->
-  <div class="container-fluid my-5 p-0">
-    <div class="img-separator-full fade-in-zoom">
-      <img src="assets/foto4.jpg" alt="Separador decorativo">
+  <div class="container-fluid p-0">
+    <div class="row">
+
+      <div class="img-separator-full fade-in-zoom">
+        <img src="assets/foto9.jpg" alt="Separador decorativo">
+      </div>
     </div>
   </div>
 
@@ -462,7 +530,7 @@
     <div class="container">
       <div class="text-center mb-5 fade-up">
         <h2 class="section-title">Tips y Notas</h2>
-        <p class="text-muted">
+        <p class="text-muted cormorant-upright-light" style="font-size: 1.2rem;">
           1. El evento tendra zona de fotos<br> ¡Así que ven listo/a para posar! <br><br>
           2. Prepara tu cámara: habrá momentos inolvidables que querrás capturar.<br><br>
           3. Llega con tiempo para disfrutar cada instante.<br>
@@ -473,9 +541,9 @@
 
 
   <!-- Separador de imagen full-bleed SIN bordes redondeados -->
-  <div class="container-fluid my-5 p-0">
+  <div class="container-fluid p-0">
     <div class="img-separator-full fade-in-zoom">
-      <img src="assets/foto5.jpg" alt="Separador decorativo">
+      <img src="assets/foto10.jpg" alt="Separador decorativo">
     </div>
   </div>
 
@@ -484,16 +552,15 @@
     <div class="container">
       <div class="text-center mb-5 fade-up">
         <h2 class="section-title">Galería</h2>
-        <p class="text-muted">Agrega tus fotos favoritas a continuación.</p>
       </div>
       <div class="row g-3 gallery">
         <!-- Reemplazar src con sus imágenes -->
-        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="/invitacion/assets/foto1.JPG" alt="Foto 1"></div>
-        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="/invitacion/assets/foto2.JPG" alt="Foto 2"></div>
-        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="/invitacion/assets/foto3.JPG" alt="Foto 3"></div>
-        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="/invitacion/assets/foto4.JPG" alt="Foto 4"></div>
-        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="/invitacion/assets/foto5.JPG" alt="Foto 5"></div>
-        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="/invitacion/assets/foto6.JPG" alt="Foto 6"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto1.JPG" alt="Foto 1"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto2.JPG" alt="Foto 2"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto3.JPG" alt="Foto 3"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto4.JPG" alt="Foto 4"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto5.JPG" alt="Foto 5"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto6.JPG" alt="Foto 6"></div>
       </div>
     </div>
   </section>
@@ -501,9 +568,9 @@
 
 
   <!-- Separador de imagen full-bleed SIN bordes redondeados -->
-  <div class="container-fluid my-5 p-0">
+  <div class="container-fluid p-0">
     <div class="img-separator-full fade-in-zoom">
-      <img src="assets/foto6.jpg" alt="Separador decorativo">
+      <img src="assets/foto7.jpg" alt="Separador decorativo">
     </div>
   </div>
 
@@ -526,16 +593,18 @@
 
 
   <!-- Separador de imagen full-bleed SIN bordes redondeados -->
-  <div class="container-fluid my-5 p-0">
+  <div class="container-fluid p-0">
     <div class="img-separator-full fade-in-zoom">
-      <img src="assets/foto7.jpg" alt="Separador decorativo">
+      <img src="assets/foto1.jpg" alt="Separador decorativo">
     </div>
   </div>
 
   <footer class="py-4">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-      <div class="small">Con cariño, familia <span class="accent fw-semibold">Flores Bartolón</span>.</div>
-      <div class="small text-muted">#MisXV</div>
+      <div class="cormorant-upright-light text-center" style="font-size: 3rem;">Con cariño, familia <span
+          class="accent fw-semibold">Flores Bartolón</span>.
+      </div>
+      <div class="small text-muted cormorant-upright-light" style="font-size: 1.2rem">#MisXV</div>
     </div>
   </footer>
 
