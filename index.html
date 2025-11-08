@@ -373,7 +373,20 @@
 
 <body>
   <!-- Música de fondo (reemplazar src por su archivo .mp3) -->
-  <audio id="bg-music" src="assets/talia.mp3" preload="auto" loop></audio>
+  <audio id="bg-music"
+       src="assets/talia.mp3"
+       preload="auto"
+       loop
+       muted
+       autoplay
+       playsinline></audio>
+
+
+       <div id="audioPrompt"
+     class="position-fixed bottom-0 start-50 translate-middle-x mb-3 px-3 py-2 rounded-pill bg-dark text-white small shadow"
+     style="display:none; z-index:1050">
+  Toca para activar el sonido <i class="bi bi-volume-up ms-1"></i>
+</div>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
@@ -398,7 +411,6 @@
       <br><br><br><br><br><br>
       <h1 class="nombre mb-3">Daira Maité <br> Flores Bartolón</h1>
       <p class="cormorant-upright-light" style="font-size: 4rem;">Mis XV Años</p>
-      <button id="musicBtn" class="btn btn-rosa ms-lg-3"><i class="bi bi-play-fill me-1"></i> Música</button>
       <div class="row justify-content-center mt-4 g-3">
         <div class="col-10 col-md-8 col-lg-6">
           <div class="card card-soft p-4">
@@ -413,6 +425,9 @@
           </div>
         </div>
       </div>
+      <br>
+      <button id="musicBtn" class="btn btn-rosa ms-lg-3"><i class="bi bi-play-fill me-1"></i> Música</button>
+
     </div>
     <!-- Stickers PNG (reemplaza rutas por tus propios PNGs con fondo transparente) -->
     <img src="/invitacion/assets/png/quinceañera-left.png" alt="Quinceañera"
@@ -743,6 +758,44 @@
   // Asignar al enlace
   document.getElementById('waRSVP').setAttribute('href', urlWA);
 </script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const audio  = document.getElementById('bg-music');
+    const prompt = document.getElementById('audioPrompt');
+  
+    // 1) Intentar autoplay (muted)
+    try {
+      await audio.play();
+    } catch (_) {
+      // Si falla, igual mostraremos el prompt y esperamos interacción
+    }
+  
+    // 2) Si está en mute, pedir un toque para habilitar sonido
+    if (audio.muted) {
+      if (prompt) prompt.style.display = 'block';
+  
+      const enableSound = async () => {
+        audio.muted = false;
+        try { await audio.play(); } catch (_) {}
+        if (prompt) prompt.style.display = 'none';
+        cleanup();
+      };
+  
+      const cleanup = () => {
+        ['click','touchend','keydown','scroll'].forEach(ev =>
+          window.removeEventListener(ev, enableSound)
+        );
+      };
+  
+      ['click','touchend','keydown','scroll'].forEach(ev =>
+        window.addEventListener(ev, enableSound, { once: true })
+      );
+    }
+  });
+  </script>
+  
 
   <!--
     📁 Cómo usar este archivo
