@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mis XV Años — Invitación</title>
+
+  <!-- Google Fonts (solo tipografías actualizadas y más elegantes) -->
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+
+  <!-- (opcional) mejora de rendimiento -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fuente Tangerine (400 y 700) -->
+  <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+
+
+  <style>
+    :root {
+      --rosa: #5ec8ff;
+      /* celeste principal (antes #e6a3b2) */
+      --vino: #0b4f6c;
+      /* azul profundo/acento (antes #6b2b3b) */
+      --champagne: #eef7ff;
+      /* fondo claro azulado (antes #f8f1e7) */
+      --negro: #111;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Lora', system-ui, -apple-system, 'Segoe UI', Roboto, serif;
+      color: #222;
+      background: var(--champagne);
+    }
+
+    /* Hero con foto difuminada + overlay azul */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+      /* el color ahora va en ::after como overlay; la imagen va en ::before */
+      background: none;
+    }
+
+    /* Capa de la FOTO difuminada (reemplaza la ruta por tu imagen) */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('assets/foto1.JPG') center/cover no-repeat;
+      /* Difuminado suave y leve zoom para evitar bordes del blur */
+      transform: scale(1.08);
+      z-index: 0;
+      opacity: 1;
+    }
+
+
+
+    /* Capa de DEGRADADO AZUL encima de la foto para legibilidad */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(255, 255, 255, .15), transparent 100%),
+        linear-gradient(120deg, #0b1d2a, #156ca3 80%, #1f8bd4);
+      z-index: 0;
+      opacity: .50;
+    }
+
+    .hero .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .nombre {
+      font-family: 'Alex Brush', cursive;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: .9;
+    }
+
+    .textos {
+      font-family: 'Alex Brush', cursive;
+      font-size: clamp(2rem, 4vw, 6rem);
+      line-height: .9;
+      color: rgb(71, 71, 71);
+    }
+
+    .subtexto {
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      opacity: .95
+    }
+
+    .badge-glow {
+      background: rgba(255, 255, 255, .15);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, .35);
+      color: #fff;
+    }
+
+    /* Secciones generales */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-family: 'Alex Brush', cursive;
+      color: var(--vino);
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    }
+
+    .accent {
+      color: var(--vino);
+    }
+
+    /* Tarjetas transparentes */
+    .card-soft {
+      background: rgba(255, 255, 255, .7);
+      border: 1px solid rgba(0, 0, 0, .05);
+      backdrop-filter: blur(6px);
+      border-radius: 1.25rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    }
+
+    /* Botón principal */
+    .btn-rosa {
+      background: var(--rosa);
+      border: none;
+      color: #fff;
+    }
+
+    .btn-rosa:hover {
+      background: #42b2ee;
+      color: #fff;
+    }
+
+    /* hover celeste más intenso */
+
+    /* Galería */
+    .gallery img {
+      border-radius: 1rem;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+    }
+
+    /* Footer */
+    footer {
+      background: #fff;
+    }
+
+    /* Animaciones simples */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: all .8s ease;
+    }
+
+    .fade-up.appear {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Extras de animación */
+    .fade-left {
+      opacity: 0;
+      transform: translateX(-18px);
+      transition: all .9s ease;
+    }
+
+    .fade-right {
+      opacity: 0;
+      transform: translateX(18px);
+      transition: all .9s ease;
+    }
+
+    .fade-left.appear,
+    .fade-right.appear {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Stickers PNG decorativos */
+    .sticker {
+      position: absolute;
+      z-index: 1;
+      opacity: .9;
+      filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .15));
+      animation: sway 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .sticker--left {
+      left: 1rem;
+      bottom: 1rem;
+      max-width: min(26vw, 220px);
+      animation-delay: .3s;
+    }
+
+    .sticker--right {
+      right: 1rem;
+      top: 1rem;
+      max-width: min(24vw, 200px);
+      animation-delay: 1.1s;
+    }
+
+    @keyframes sway {
+
+      0%,
+      100% {
+        transform: rotate(-2deg) translateY(0);
+      }
+
+      50% {
+        transform: rotate(2deg) translateY(-6px);
+      }
+    }
+
+    /* Pétalos flotando: de rosa a celeste suave */
+    .petal {
+      position: fixed;
+      top: -5vh;
+      width: 18px;
+      height: 18px;
+      background: radial-gradient(circle at 40% 40%, #bfe8ff 0 45%, transparent 46%);
+      border-radius: 60% 40% 60% 40%;
+      opacity: .65;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: .9;
+      }
+    }
+
+    /* Cinta decorativa */
+    .ribbon {
+      background: linear-gradient(90deg, rgba(255, 255, 255, .8), rgba(255, 255, 255, .5));
+      border: 1px dashed rgba(0, 0, 0, .06);
+      border-radius: 1rem;
+    }
+
+    /* Solo color: redefinir text-danger a azul para no tocar el HTML */
+    .text-danger {
+      color: #1f8bd4 !important;
+    }
+
+    /* Contenedor a todo el ancho, esquinas cuadradas */
+    .img-separator-full {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      /* sombra suave */
+    }
+
+    /* Imagen full-width sin deformar */
+    .img-separator-full img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.05) contrast(1.02);
+    }
+
+    /* Vignette/difuminado suave en los bordes internos */
+    .img-separator-full::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 60px rgba(0, 0, 0, .16);
+    }
+
+    /* (Opcional) Halo suave para un look más “wow” */
+    .img-separator-full::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(120% 60% at 50% 50%, rgba(255, 255, 255, .22), transparent 60%);
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: .22;
+    }
+
+    /* Animación de entrada sutil */
+    .fade-in-zoom {
+      opacity: 0;
+      transform: translateY(14px) scale(.985);
+      transition: opacity .9s cubic-bezier(.22, .61, .36, 1),
+        transform .9s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    .fade-in-zoom.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+
+    /* Ejemplo de uso */
+    .textosdestacados {
+      font-family: 'Tangerine', cursive;
+    }
+
+    /* Para cualquier otro texto */
+    .textosbasicos {
+      font-family: 'Tangerine', cursive;
+      font-weight: 400;
+    }
+
+
+    .cormorant-upright-light {
+      font-family: "Cormorant Upright", serif;
+      font-weight: 300;
+      font-style: normal;
+    }
+
+    .cormorant-upright-regular {
+      font-family: "Cormorant Upright", serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    .cormorant-upright-medium {
+      font-family: "Cormorant Upright", serif;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    .cormorant-upright-semibold {
+      font-family: "Cormorant Upright", serif;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    .cormorant-upright-bold {
+      font-family: "Cormorant Upright", serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+  </style>
+
+
+
+
+</head>
+
+<body>
+  <!-- Música de fondo (reemplazar src por su archivo .mp3) -->
+  <audio id="bg-music"
+       src="assets/talia.mp3"
+       preload="auto"
+       loop
+       muted
+       autoplay
+       playsinline></audio>
+
+
+       <div id="audioPrompt"
+     class="position-fixed bottom-0 start-50 translate-middle-x mb-3 px-3 py-2 rounded-pill bg-dark text-white small shadow"
+     style="display:none; z-index:1050">
+  Toca para activar el sonido <i class="bi bi-volume-up ms-1"></i>
+</div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a id="invitadoEncabezado" class="navbar-brand fw-semibold" href="#inicio"><i class="bi bi-stars me-2 text-danger"></i>F</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
+        aria-expanded="false" aria-label="Menú"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#detalles">Detalles</a></li>
+          <li class="nav-item"><a class="nav-link" href="#itinerario">Itinerario</a></li>
+          <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="#rsvp">RSVP</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="inicio" class="hero d-flex align-items-center">
+    <div class="content container">
+      <br><br><br><br><br><br>
+      <h1 class="nombre mb-3">Daira Maité <br> Flores Bartolón</h1>
+      <p class="cormorant-upright-light" style="font-size: 4rem;">Mis XV Años</p>
+      <div class="row justify-content-center mt-4 g-3">
+        <div class="col-10 col-md-8 col-lg-6">
+          <div class="card card-soft p-4">
+            <p class="mb-0 cormorant-upright-light" style="font-size: 1.1rem;">
+              Agradezco a Dios por la vida, <br>
+              Por mis padres y por todas las bendiciones recibidas.<br>
+              Hoy que llego a mis quince años, <br>
+              deseo compartir mi felicidad con ustedes, cumplo un sueño que esperé con emoción,<br>
+              y quiero que estén conmigo para celebrar<br>
+              este día tan especial en mi vida.<br>
+            </p>
+          </div>
+        </div>
+      </div>
+      <br>
+      <button id="musicBtn" class="btn btn-rosa ms-lg-3"><i class="bi bi-play-fill me-1"></i> Música</button>
+
+    </div>
+    <!-- Stickers PNG (reemplaza rutas por tus propios PNGs con fondo transparente) -->
+    <img src="/invitacion/assets/png/quinceañera-left.png" alt="Quinceañera"
+      class="sticker sticker--left d-none d-sm-block">
+    <img src="/invitacion/assets/png/tiara-rosas.png" alt="Tiara y rosas"
+      class="sticker sticker--right d-none d-sm-block">
+  </header>
+
+  <div class="content container pictures">
+
+
+  </div>
+
+
+
+  <!-- Detalles -->
+  <section id="detalles" class="bg-white">
+    <div class="container-fluid">
+      <div class="text-center mb-5 fade-up">
+        <p class="text-muted mb-5 cormorant-upright-light" style="font-size: 1.5rem;">Mis Padres</p>
+        <p class="nombre mb-5">Luis y Mariana</p>
+        <p class="text-muted cormorant-upright-light" style="font-size: 1.5rem;">Tienen el gusto de invitarlos a
+          compartir éste día tan especial.</p>
+      </div>
+      <div class="row g-4 mb-5">
+        <div class="col-md-4 fade-up">
+          <div class="">
+            <div class="text-center">
+              <h2 class="mb-2 text-center cormorant-upright-bold" style="font-size: 3rem;" id="invitadoCuerpo"></h2>
+              <p class="small text-muted cormorant-upright-light" style="font-size: 1.2rem;">Número de Invitados: <span
+                  class="accent fw-semibold" id="cantidadInvitados"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Separador de imagen full-bleed SIN bordes redondeados -->
+      <div class="container-fluid mb-5 p-0">
+        <div class="img-separator-full fade-in-zoom">
+          <img src="assets/foto7.JPG" alt="Separador decorativo">
+        </div>
+      </div>
+
+
+
+      <div class="text-center mb-5 fade-up">
+        <h2 class="section-title">Detalles del Evento</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 fade-up">
+          <div class="card h-100 card-soft p-4">
+            <div class="d-flex align-items-center gap-3 mb-2">
+              <i class="bi bi-balloon-heart fs-3 text-danger"></i>
+              <h5 class="mb-0 cormorant-upright-bold" style="font-size: 1.5rem;">Recepción</h5>
+            </div>
+            <p class="mb-2 cormorant-upright-semibold" style="font-size: 1.1rem;">Sábado 22 de Noviembre - 16:00 Horas
+            </p>
+            <p class="small text-muted cormorant-upright-light" style="font-size: 1.1rem;">Salón Génesis Línea A-11, a
+              la par de gasolinera Don
+              Arturo</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-5 fade-up">
+          <div class="card h-100 card-soft p-4">
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-stars fs-3 text-danger"></i>
+              <h5 class="mb-0 cormorant-upright-bold" style="font-size: 1.5rem;">Código de vestimenta</h5>
+            </div>
+            <p class="mb-2 cormorant-upright-semibold" style="font-size: 1.1rem;">Formal de gala</p>
+            <p class="small text-muted cormorant-upright-light" style="font-size: 1.1rem;">Evitar tonos totalmente
+              verdes.</p>
+          </div>
+        </div>
+
+
+        <!-- Separador de imagen full-bleed SIN bordes redondeados -->
+        <div class="container-fluid mb-5 p-0">
+          <div class="img-separator-full fade-in-zoom">
+            <img src="assets/foto8.JPG" alt="Separador decorativo">
+          </div>
+        </div>
+
+
+        <div class="text-center fade-up">
+          <h2 class="section-title">Ya solo faltan</h2>
+        </div>
+        <div class="row justify-content-center g-3">
+          <div class="col-10 col-md-8 col-lg-6">
+            <div class="card card-soft p-4">
+              <div class="mt-3 d-flex justify-content-center gap-3 flex-wrap" id="countdown">
+                <div class="text-center">
+                  <div class="fs-2 fw-bold cormorant-upright-bold" id="dd">--</div>
+                  <div class="small cormorant-upright-bold">Días</div>
+                </div>
+                <div class="text-center">
+                  <div class="fs-2 fw-bold cormorant-upright-bold" id="hh">--</div>
+                  <div class="small cormorant-upright-bold">Horas</div>
+                </div>
+                <div class="text-center">
+                  <div class="fs-2 fw-bold cormorant-upright-bold" id="mm">--</div>
+                  <div class="small cormorant-upright-bold">Min</div>
+                </div>
+                <div class="text-center">
+                  <div class="fs-2 cormorant-upright-bold" id="ss">--</div>
+                  <div class="small cormorant-upright-bold">Seg</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Separador de imagen full-bleed SIN bordes redondeados -->
+  <div class="container-fluid p-0">
+    <div class="row">
+
+      <div class="img-separator-full fade-in-zoom">
+        <img src="assets/foto9.JPG" alt="Separador decorativo">
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Itinerario -->
+  <section id="itinerario">
+    <div class="container">
+      <div class="text-center mb-5 fade-up">
+        <h2 class="section-title">Tips y Notas</h2>
+        <p class="text-muted cormorant-upright-light" style="font-size: 1.2rem;">
+          1. El evento tendra zona de fotos<br> ¡Así que ven listo/a para posar! <br><br>
+          2. Prepara tu cámara: habrá momentos inolvidables que querrás capturar.<br><br>
+          3. Llega con tiempo para disfrutar cada instante.<br>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Separador de imagen full-bleed SIN bordes redondeados -->
+  <div class="container-fluid p-0">
+    <div class="img-separator-full fade-in-zoom">
+      <img src="assets/foto10.JPG" alt="Separador decorativo">
+    </div>
+  </div>
+
+  <!-- Galería -->
+  <section id="galeria" class="bg-white">
+    <div class="container">
+      <div class="text-center mb-5 fade-up">
+        <h2 class="section-title">Galería</h2>
+      </div>
+      <div class="row g-3 gallery">
+        <!-- Reemplazar src con sus imágenes -->
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto1.JPG" alt="Foto 1"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto2.JPG" alt="Foto 2"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto3.JPG" alt="Foto 3"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto4.JPG" alt="Foto 4"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto5.JPG" alt="Foto 5"></div>
+        <div class="col-6 col-md-4 fade-up"><img class="w-100" src="assets/foto6.JPG" alt="Foto 6"></div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Separador de imagen full-bleed SIN bordes redondeados -->
+  <div class="container-fluid p-0">
+    <div class="img-separator-full fade-in-zoom">
+      <img src="assets/foto7.JPG" alt="Separador decorativo">
+    </div>
+  </div>
+
+
+  <!-- RSVP -->
+  <section id="rsvp">
+    <div class="container">
+      <div class="text-center mb-5 fade-up">
+        <h2 class="section-title">Confirma tu asistencia</h2>
+        <p class="text-muted">
+          Por favor confirma lo mas pronto posible.<br>
+          Para confirmar solo preciona el botón de abajo y sigue los pasos.
+        </p>
+        <div class="mt-3">
+          <a id="waRSVP" href="#" class="btn btn-rosa btn-lg">
+            <i class="bi bi-envelope-heart me-2"></i>Confirmar asistencia
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Separador de imagen full-bleed SIN bordes redondeados -->
+  <div class="container-fluid p-0">
+    <div class="img-separator-full fade-in-zoom">
+      <img src="assets/foto1.JPG" alt="Separador decorativo">
+    </div>
+  </div>
+
+  <footer class="py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <div class="cormorant-upright-light text-center" style="font-size: 3rem;">Con cariño, familia <span
+          class="accent fw-semibold">Flores Bartolón</span>.
+      </div>
+      <div class="small text-muted cormorant-upright-light" style="font-size: 1.2rem">#MisXV</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    // ===== Música =====
+    const music = document.getElementById('bg-music');
+    const musicBtn = document.getElementById('musicBtn');
+    let playing = false;
+
+    musicBtn?.addEventListener('click', async () => {
+      try {
+        if (!playing) { await music.play(); playing = true; musicBtn.innerHTML = '<i class="bi bi-pause-fill me-1"></i> Pausar'; }
+        else { music.pause(); playing = false; musicBtn.innerHTML = '<i class="bi bi-play-fill me-1"></i> Música'; }
+      } catch (e) { alert('Para reproducir la música, da permiso al navegador o presiona el botón nuevamente.'); }
+    });
+
+    // ===== Countdown =====
+    const target = new Date(2025, 10, 22, 16, 0, 0); // 22 Nov 2025 16:00
+    const dd = document.getElementById('dd');
+    const hh = document.getElementById('hh');
+    const mm = document.getElementById('mm');
+    const ss = document.getElementById('ss');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = target - now;
+      if (diff <= 0) { dd.textContent = hh.textContent = mm.textContent = ss.textContent = '00'; return; }
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      dd.textContent = String(d).padStart(2, '0');
+      hh.textContent = String(h).padStart(2, '0');
+      mm.textContent = String(m).padStart(2, '0');
+      ss.textContent = String(s).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000); updateCountdown();
+
+    // ===== RSVP (Google Forms) =====
+    function rsvpSubmitting() {
+      const msg = document.getElementById('formMsg');
+      msg.textContent = 'Enviando confirmación…';
+    }
+
+    const hiddenFrame = document.getElementById('hidden_iframe_rsvp');
+    hiddenFrame?.addEventListener('load', () => {
+      const form = document.getElementById('rsvpForm');
+      const msg = document.getElementById('formMsg');
+      if (msg) {
+        msg.textContent = '¡Gracias! Hemos recibido tu confirmación.';
+      }
+      form?.reset();
+    });
+
+    // ===== Animación al hacer scroll =====
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('appear'); } });
+    }, { threshold: .12 });
+    document.querySelectorAll('.fade-up, .fade-left, .fade-right').forEach(el => revealObserver.observe(el));
+
+    // ===== Pétalos flotando (decorativo) =====
+    const NUM_PETALS = 28;
+    function spawnPetal() {
+      const p = document.createElement('div');
+      p.className = 'petal';
+      const startLeft = Math.random() * 100; // vw
+      const duration = 10 + Math.random() * 12; // s
+      const delay = Math.random() * 5; // s
+      p.style.left = startLeft + 'vw';
+      p.style.animationDuration = duration + 's';
+      p.style.animationDelay = delay + 's';
+      document.body.appendChild(p);
+      setTimeout(() => p.remove(), (duration + delay) * 1000);
+    }
+    for (let i = 0; i < NUM_PETALS; i++) { spawnPetal(); }
+    setInterval(spawnPetal, 2000);
+
+    // Activa la animación cuando la banda entra al viewport
+    (function () {
+      const els = document.querySelectorAll('.fade-in-zoom');
+      if (!('IntersectionObserver' in window) || els.length === 0) {
+        els.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target); // solo una vez
+          }
+        });
+      }, { threshold: .18 });
+      els.forEach(el => io.observe(el));
+    })();
+
+
+
+  </script>
+
+
+<script>
+  // Variables que puedes modificar
+  const telefonoWhatsApp = '50251101490';
+
+
+  const familia = 'Familia Morales González'; // <— aquí cambias el nombre dinámicamente
+  const cantidad = '2';
+
+  document.getElementById('cantidadInvitados').textContent = cantidad;
+  document.getElementById('invitadoEncabezado').textContent = familia;
+  document.getElementById('invitadoCuerpo').textContent = `${familia}`;
+
+  // Mensaje con la variable incluida
+  const mensaje = `Hola, ${familia} confirma la asistencia a los 15 años de Daira 🥳`;
+
+  // Construir URL correcta para WhatsApp
+  const urlWA = `https://api.whatsapp.com/send?phone=${telefonoWhatsApp}&text=${encodeURIComponent(mensaje)}`;
+
+  // Asignar al enlace
+  document.getElementById('waRSVP').setAttribute('href', urlWA);
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const audio  = document.getElementById('bg-music');
+    const prompt = document.getElementById('audioPrompt');
+  
+    // 1) Intentar autoplay (muted)
+    try {
+      await audio.play();
+    } catch (_) {
+      // Si falla, igual mostraremos el prompt y esperamos interacción
+    }
+  
+    // 2) Si está en mute, pedir un toque para habilitar sonido
+    if (audio.muted) {
+      if (prompt) prompt.style.display = 'block';
+  
+      const enableSound = async () => {
+        audio.muted = false;
+        try { await audio.play(); } catch (_) {}
+        if (prompt) prompt.style.display = 'none';
+        cleanup();
+      };
+  
+      const cleanup = () => {
+        ['click','touchend','keydown','scroll'].forEach(ev =>
+          window.removeEventListener(ev, enableSound)
+        );
+      };
+  
+      ['click','touchend','keydown','scroll'].forEach(ev =>
+        window.addEventListener(ev, enableSound, { once: true })
+      );
+    }
+  });
+  </script>
+  
+
+  <!--
+    📁 Cómo usar este archivo
+    1) Cambia el nombre de la quinceañera, fecha, lugares y textos.
+    2) Reemplaza la IMAGEN del hero en //invitacion/assets/fondo.jpg (se difumina automáticamente).
+    3) Reemplaza las fotos en //invitacion/assets/foto1.jpg ... //invitacion/assets/foto6.jpg si deseas.
+    4) Coloca tu canción en //invitacion/assets/musica.mp3 (respeta derechos de autor). El botón “Música” la reproducirá.
+    5) Opcional: conecta el formulario RSVP a tu Google Forms.
+  -->
+</body>
+
+</html>

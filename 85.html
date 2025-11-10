@@ -458,7 +458,7 @@
             <div class="text-center">
               <h2 class="mb-2 text-center cormorant-upright-bold" style="font-size: 3rem;" id="invitadoCuerpo"></h2>
               <p class="small text-muted cormorant-upright-light" style="font-size: 1.2rem;">Número de Invitados: <span
-                  class="accent fw-semibold"> 3 </span></p>
+                  class="accent fw-semibold" id="cantidadInvitados"></span></p>
             </div>
           </div>
         </div>
@@ -744,8 +744,12 @@
 <script>
   // Variables que puedes modificar
   const telefonoWhatsApp = '50251101490';
-  const familia = 'Familia Pocasangre Flores'; // <— aquí cambias el nombre dinámicamente
 
+
+  const familia = 'Ever Campos y Familia'; // <— aquí cambias el nombre dinámicamente
+  const cantidad = '4';
+
+  document.getElementById('cantidadInvitados').textContent = cantidad;
   document.getElementById('invitadoEncabezado').textContent = familia;
   document.getElementById('invitadoCuerpo').textContent = `${familia}`;
 
